@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate, :except => [ :index, :show ]
+  #before_filter :authenticate, :except => [ :index, :show ]
 
   def show
     @article = Article.find(params[:id])
@@ -65,11 +65,11 @@ private
     params.require(:article).permit(:title, :text)
   end
 
-  def authenticate
-    authenticate_or_request_with_http_basic do |name, password|
-      name == "admin" && password == "secret"
-    end
-  end
+  # def authenticate
+  #   authenticate_or_request_with_http_basic do |name, password|
+  #     name == "admin" && password == "secret"
+  #   end
+  # end
 
 
 
